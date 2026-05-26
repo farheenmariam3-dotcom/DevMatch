@@ -5,7 +5,7 @@ We’ve all been there: you open your laptop, you want to code something to buil
 I built **DevMatch** to fix exactly that. It's a no-nonsense, minimalist web app that gives you a random, curated project blueprint based on how much mental energy or experience you have right now. 
 
 ## 🌍 Try the Live Web App
-See it live in action here: [PASTE YOUR GITHUB PAGES LINK HERE]
+See it live in action here: https://github.com/farheenmariam3-dotcom/DevMatch
 
 ## 🤔 Why I Built This (The Backstory)
 This project was born out of real-world necessity. When tasked with creating a "hobbies project" for my coursework, I realized my favorite hobby is working on my coding skillset—but the hardest part of building projects is figuring out what to build. 
