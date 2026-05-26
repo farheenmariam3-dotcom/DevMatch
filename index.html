@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevMatch - Project Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🛠️ DevMatch</h1>
+        <p>Find your next coding project instantly</p>
+
+        <div class="filter-section">
+            <label for="difficulty">Select Your Level:</label>
+            <select id="difficulty">
+                <option value="beginner">🟢 Beginner</option>
+                <option value="intermediate">🟡 Intermediate</option>
+                <option value="advanced">🔴 Advanced</option>
+            </select>
+            <button id="generate-btn">Generate Project</button>
+        </div>
+
+        <div id="project-card" class="card hidden">
+            <h2 id="project-title">Project Name Here</h2>
+            <p id="project-desc">Project description will go here.</p>
+        </div>
+    </div>
+
+    <script>
+        const projectDatabase = {
+            beginner: [
+                { name: "Simple To-Do List", desc: "Create, delete, and check off daily tasks using local state." },
+                { name: "Digital Clock & Stopwatch", desc: "A clean, minimal clock with a functioning lap-timer feature." },
+                { name: "Random Quote Generator", desc: "Click a button to display a random motivational or funny quote from an array." },
+                { name: "Tip Calculator", desc: "Inputs for the bill amount and tip percentage, outputs the calculated total split per person." },
+                { name: "Rock, Paper, Scissors Game", desc: "Play the classic game against a basic computer AI that makes random choices." },
+                { name: "BMI Calculator", desc: "Input height and weight, calculate the user's BMI, and show their health category." },
+                { name: "Flashcard App", desc: "Simple digital cards that flip over when clicked to show a definition for quick studying." },
+                { name: "Unit Converter", desc: "Convert metrics instantly, such as Celsius to Fahrenheit, or Kilograms to Pounds." },
+                { name: "Simple Counter App", desc: "Buttons to increment, decrement, and reset a number. Bonus: turns red if negative!" },
+                { name: "Color Picker Website", desc: "Click on different hex color palettes and copy the color codes instantly to your clipboard." }
+            ],
+            intermediate: [
+                { name: "Weather App", desc: "Type a city name and fetch live, real-time weather data using a free API like OpenWeatherMap." },
+                { name: "Movie Search App", desc: "Uses a movie database API to let users search for films, view ratings, and see posters." },
+                { name: "Personal Expense Tracker", desc: "Log daily expenses with categories (Food, Rent) and visualize your total monthly spend." },
+                { name: "Quiz App with Timer", desc: "A multiple-choice quiz game where users face a strict countdown timer for each question." },
+                { name: "Markdown Note-Taking App", desc: "Write notes in Markdown syntax and see a live, side-by-side preview of how they look formatted." },
+                { name: "Recipe Finder (By Ingredient)", desc: "Type in ingredients you have at home to search for and display matching recipes from a free API." },
+                { name: "Password Manager", desc: "A local app that securely saves your passwords and includes a strong, random password generator." },
+                { name: "Habit Tracker with Streaks", desc: "Tracks daily habits and visualizes a 'streak' counter to keep you motivated day after day." },
+                { name: "Pomodoro Study Timer", desc: "A 25-minute study / 5-minute break cyclical timer that plays an alert sound when time is up." },
+                { name: "GitHub Profile Finder", desc: "Input any GitHub username to fetch and display their avatar, bio, and top public repositories." }
+            ],
+            advanced: [
+                { name: "Real-Time Chat Application", desc: "A live chatroom environment where multiple users can type and see messages instantly using WebSockets." },
+                { name: "E-Commerce Shopping Cart", desc: "A full store simulation with product filtering, dynamic cart additions, quantity changes, and checkout." },
+                { name: "Social Media Dashboard", desc: "An analytics dashboard tracking mock user metrics, engagement, and reach with dynamic graphs and data tables." },
+                { name: "Music Streaming App Clone", desc: "A web player UI where users can play, pause, skip audio tracks, and manage a custom playlist." },
+                { name: "Kanban Board (Trello Clone)", desc: "Manage tasks visually by dragging and dropping project cards between 'To Do', 'In Progress', and 'Done' columns." },
+                { name: "URL Shortener with Analytics", desc: "Paste a long URL, get back a clean short link, and track the number of times that short link is clicked." },
+                { name: "Expense Splitter (Splitwise Clone)", desc: "Group expense tracker where friends can log combined bills and calculate exactly who owes who what." },
+                { name: "Portfolio Website with CMS", desc: "A personal portfolio site featuring a secure login panel to add, edit, or delete projects dynamically." },
+                { name: "Pixel Art Maker", desc: "A grid canvas where users can pick custom colors from a palette, paint pixel art, and download their creations." },
+                { name: "Typing Speed Tester", desc: "Generates random test paragraphs, tracks words-per-minute (WPM) live, and highlights typos in real-time." }
+            ]
+        };
+
+        const difficultySelect = document.getElementById('difficulty');
+        const generateBtn = document.getElementById('generate-btn');
+        const projectCard = document.getElementById('project-card');
+        const projectTitle = document.getElementById('project-title');
+        const projectDesc = document.getElementById('project-desc');
+
+        generateBtn.addEventListener('click', () => {
+            const selectedLevel = difficultySelect.value;
+            const projectList = projectDatabase[selectedLevel];
+            const randomIndex = Math.floor(Math.random() * projectList.length);
+            const chosenProject = projectList[randomIndex];
+            
+            projectTitle.textContent = chosenProject.name;
+            projectDesc.textContent = chosenProject.desc;
+            projectCard.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
